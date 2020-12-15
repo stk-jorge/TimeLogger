@@ -1,0 +1,38 @@
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'timeloggerApp/style.css' %}">
+{#<link rel="stylesheet" type="text/css" href="{% static 'tabela/style.css' %}" />#}
+{#<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">#}
+{#<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">#}
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Time Logger App</title>
+
+</head>
+
+
+
+<h1>
+    <ul>
+  <li><a href="#home">Home</a></li>
+  <li><a href="https://news.google.com">News</a></li>
+  <li><a href="#contact">Contact</a></li>
+
+</ul>
+    Today is : {{ current_time }}<br>
+</h1>
+<h2>
+    Welcome : {{ emp_first_name }} {{ emp_last_name }}
+</h2>
+<body>
+
+{#<button value={{ current_id }} onclick="location.href={%  url 'clockIn'%}" >Clock In</button>#}
+<form action="{% url 'clockIn'%}" method="post">
+{% csrf_token %}
+<button type="submit" name='btn_1' value={{current_id}}>Clock Out</button>
+</form>
+</body>
+</html>
